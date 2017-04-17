@@ -1,0 +1,41 @@
+import UIKit
+import LeadKit
+
+final class {{ module_info.name }}ViewController: UIViewController {
+
+    var viewModel: {{ module_info.name }}ViewModel!
+
+    // MARK: - View Life Cycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        initialLoadView()
+    }
+
+}
+
+extension {{ module_info.name }}ViewController: ConfigurableController {
+
+    func bindViews() {
+
+    }
+
+    func setAppearance() {
+
+    }
+
+    func addViews() {
+
+    }
+
+    func configureBarButtons() {
+
+    }
+
+    func localize() {
+
+    }
+
+}
+    

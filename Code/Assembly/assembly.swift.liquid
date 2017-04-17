@@ -1,0 +1,12 @@
+import LeadKit
+
+struct {{ module_info.name }}Assembly {}
+
+extension {{ module_info.name }}Assembly: ModuleConfigurator {
+
+    func configure(input: {{ module_info.name }}ViewController) {
+        let viewModel = {{ module_info.name }}ViewModel()
+        input.viewModel = viewModel
+    }
+
+}

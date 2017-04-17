@@ -1,0 +1,21 @@
+# Template information section
+name: "swifty_mvvm_touchin"
+summary: "Swift MVVM module template using in Touch Instinct"
+author: "Nikolay Ashanin"
+version: "0.1.0"
+license: "MIT"
+
+# The declarations for code files
+
+code_files:
+#Assembly layer
+- {name: Assembly/Assembly.swift,  path: Code/Assembly/assembly.swift.liquid}
+- {name: Assembly/NavigationService.swift,  path: Code/Assembly/navigation_service.swift.liquid, custom_name: "NavigationService+{{module_info.name}}.swift"}
+
+
+#View layer
+- {name: View/ViewController.swift,  path: Code/View/view_controller.swift.liquid}
+- {name: View/ViewController.xib,  path: Code/View/view_controller.xib.liquid}
+
+#ViewModel layer
+- {name: ViewModel/ViewModel.swift,  path: Code/ViewModel/view_model.swift.liquid}
