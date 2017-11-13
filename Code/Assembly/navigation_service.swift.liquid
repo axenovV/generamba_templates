@@ -3,7 +3,7 @@ import UIKit
 
 extension NavigationService {
 
-    static func {{ module_info.name | downcase }}ViewController() -> {{ module_info.name }}ViewController {
+    static func {{ module_info.name | camelize }}ViewController() -> {{ module_info.name }}ViewController {
         let controller = {{ module_info.name }}ViewController(nibName: {{ module_info.name }}ViewController.xibName, bundle: nil)
         let assembly = {{ module_info.name }}Assembly()
         assembly.configure(input: controller)
