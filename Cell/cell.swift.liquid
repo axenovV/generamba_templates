@@ -1,0 +1,33 @@
+import UIKit
+import TableKit
+import RxSwift
+import RxCocoa
+
+/// <#Cell description#>
+final class {{ module_info.name }}: UITableViewCell, ConfigurableCell {
+
+    fileprivate var disposeBag = DisposeBag()
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        clear()
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        clear()
+    }
+
+    private func clear() {
+        disposeBag = DisposeBag()
+
+        // clear other elements
+    }
+
+    func configure(with viewModel: {{ module_info.name }}ViewModel) {
+        // configuration
+    }
+
+}
