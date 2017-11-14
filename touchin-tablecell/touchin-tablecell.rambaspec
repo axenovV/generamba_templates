@@ -1,0 +1,15 @@
+# Template information section
+name: "touchin-tablecell"
+summary: "Swift UITableViewCell for TableKit using in Touch Instinct"
+author: "Igor Kislyuk"
+version: "0.1.0"
+license: "MIT"
+
+# The declarations for code files
+
+code_files:
+
+# cell
+- {name: UITableViewCell.swift, path: TableCell/cell.swift.liquid, custom_name: "{{module_info.name}}.swift"}
+- {name: CellViewModel.swift,  path: TableCell/cellViewModel.swift.liquid, custom_name: "{{module_info.name}}ViewModel.swift"}
+- {name: UITableViewCell.xib,  path: TableCell/view.xib.liquid, custom_name: "{{module_info.name}}.xib"}
