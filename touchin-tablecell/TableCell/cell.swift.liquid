@@ -1,0 +1,21 @@
+import UIKit
+import TableKit
+import RxSwift
+import RxCocoa
+
+/// <#Cell description#>
+final class {{ module_info.name }}: UITableViewCell, ConfigurableCell {
+
+    fileprivate var disposeBag = DisposeBag()
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        disposeBag = DisposeBag()
+    }
+
+    func configure(with viewModel: {{ module_info.name }}ViewModel) {
+        // configuration
+    }
+
+}
