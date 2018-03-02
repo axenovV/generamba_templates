@@ -4,7 +4,7 @@ import Swinject
 extension NavigationService {
 
     static func {{ module_info.name | prepend:'create' }}ViewController() -> {{ module_info.name }}ViewController? {
-        return {{ module_info.name }}.resolver.resolve({{ module_info.name }}ViewController.self)
+        return {{ module_info.name }}Assembly.resolver.resolve({{ module_info.name }}ViewController.self)
     }
 
 }
