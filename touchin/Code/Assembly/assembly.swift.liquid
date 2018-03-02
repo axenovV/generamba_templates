@@ -11,7 +11,7 @@ class {{ module_info.name }}Assembly: Assembly {
     func assemble(container: Container) {
         container.register({{ module_info.name }}ViewModel.self) { _ in {{ module_info.name }}ViewModel() }
 
-        container.register(WebcamsViewController.self) { r in
+        container.register({{ module_info.name }}ViewController.self) { r in
             let viewController: {{ module_info.name }}ViewController = UIStoryboard(storyboard: .{{ module_info.name | downcase }}).instantiateViewController()
             viewController.viewModel = r.resolve({{ module_info.name }}ViewModel.self)
             return viewController
