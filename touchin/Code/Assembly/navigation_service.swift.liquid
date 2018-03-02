@@ -3,11 +3,8 @@ import UIKit
 
 extension NavigationService {
 
-    static func {{ module_info.name | prepend:'create' }}ViewController() -> {{ module_info.name }}ViewController {
-        let controller = {{ module_info.name }}ViewController(nibName: {{ module_info.name }}ViewController.xibName, bundle: nil)
-        let assembly = {{ module_info.name }}Assembly()
-        assembly.configure(input: controller)
-        return controller
+    static func {{ module_info.name | prepend:'create' }}ViewController() -> {{ module_info.name }}ViewController? {
+        return {{ module_info.name }}.resolver.resolve({{ module_info.name }}ViewController.self)
     }
 
 }

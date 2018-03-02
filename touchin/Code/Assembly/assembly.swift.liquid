@@ -1,6 +1,6 @@
 import Swinject
 
-class WebcamsAssembly: Assembly {
+class {{ module_info.name }}Assembly: Assembly {
 
     static let assembler = Assembler([{{ module_info.name }}Assembly])
 
