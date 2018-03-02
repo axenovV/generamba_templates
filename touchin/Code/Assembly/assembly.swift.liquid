@@ -2,7 +2,7 @@ import Swinject
 
 class {{ module_info.name }}Assembly: Assembly {
 
-    static let assembler = Assembler([{{ module_info.name }}Assembly])
+    static let assembler = Assembler([{{ module_info.name }}Assembly()])
 
     static var resolver: Resolver {
         return assembler.resolver
@@ -12,7 +12,7 @@ class {{ module_info.name }}Assembly: Assembly {
         container.register({{ module_info.name }}ViewModel.self) { _ in {{ module_info.name }}ViewModel() }
 
         container.register(WebcamsViewController.self) { r in
-            let viewController: {{ module_info.name }}ViewController = UIStoryboard(storyboard: .{{ module_info.name }}).instantiateViewController()
+            let viewController: {{ module_info.name }}ViewController = UIStoryboard(storyboard: .{{ module_info.name | downcase }}).instantiateViewController()
             viewController.viewModel = r.resolve({{ module_info.name }}ViewModel.self)
             return viewController
         }
