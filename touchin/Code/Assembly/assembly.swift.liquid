@@ -1,12 +1,21 @@
-import LeadKit
+import Swinject
 
-struct {{ module_info.name }}Assembly {}
+class WebcamsAssembly: Assembly {
 
-extension {{ module_info.name }}Assembly: ModuleConfigurator {
+    static let assembler = Assembler([{{ module_info.name }}Assembly])
 
-    func configure(input: {{ module_info.name }}ViewController) {
-        let viewModel = {{ module_info.name }}ViewModel()
-        input.viewModel = viewModel
+    static var resolver: Resolver {
+        return assembler.resolver
+    }
+
+    func assemble(container: Container) {
+        container.register({{ module_info.name }}ViewModel.self) { _ in {{ module_info.name }}ViewModel() }
+
+        container.register(WebcamsViewController.self) { r in
+            let viewController: {{ module_info.name }}ViewController = UIStoryboard(storyboard: .{{ module_info.name }}).instantiateViewController()
+            viewController.viewModel = r.resolve({{ module_info.name }}ViewModel.self)
+            return viewController
+        }
     }
 
 }
