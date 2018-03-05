@@ -12,7 +12,7 @@ class {{ module_info.name }}Assembly: Assembly {
         container.register({{ module_info.name }}ViewModel.self) { _ in {{ module_info.name }}ViewModel() }
 
         container.register({{ module_info.name }}ViewController.self) { r in
-            let viewController: {{ module_info.name }}ViewController = UIStoryboard(storyboard: .{{ module_info.name | downcase }}).instantiateViewController()
+            let viewController: {{ module_info.name }}ViewController = UIStoryboard(storyboard: .{{ module_info.name | capitalize }}).instantiateViewController()
             viewController.viewModel = r.resolve({{ module_info.name }}ViewModel.self)
             return viewController
         }
