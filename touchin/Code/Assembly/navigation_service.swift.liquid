@@ -1,10 +1,11 @@
 import UIKit
-import Swinject
 
 extension NavigationService {
 
-    static func {{ module_info.name | prepend:'create' }}ViewController() -> {{ module_info.name }}ViewController? {
-        return {{ module_info.name }}Assembly.resolver.resolve({{ module_info.name }}ViewController.self)
+    static func {{ module_info.name | prepend:'create' }}ViewController() -> {{ module_info.name }}ViewController {
+        let viewController: {{ module_info.name }}ViewController = UIStoryboard(storyboard: .{{ module_info.name | capitalize }}).instantiateViewController()
+        assembly.configure(input: controller)
+        return controller
     }
 
 }

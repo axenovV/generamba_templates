@@ -1,20 +1,10 @@
 import Swinject
 
-class {{ module_info.name }}Assembly: Assembly {
+struct {{ module_info.name }}Assembly {
 
-    static let assembler = Assembler([{{ module_info.name }}Assembly()])
-
-    static var resolver: Resolver {
-        return assembler.resolver
-    }
-
-    func assemble(container: Container) {
-        container.register({{ module_info.name }}ViewModel.self) { _ in {{ module_info.name }}ViewModel() }
-        container.register({{ module_info.name }}ViewController.self) { r in
-            let viewController: {{ module_info.name }}ViewController = UIStoryboard(storyboard: .{{ module_info.name | capitalize }}).instantiateViewController()
-            viewController.viewModel = r.resolve({{ module_info.name }}ViewModel.self)
-            return viewController
-        }
-    }
+  func configure(input: {{ module_info.name }}ViewController) {
+      let viewModel = {{ module_info.name }}ViewModel()
+      input.viewModel = viewModel
+  }
 
 }
