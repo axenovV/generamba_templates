@@ -5,7 +5,7 @@ extension NavigationService {
     static func {{ module_info.name | prepend:'create' }}ViewController() -> {{ module_info.name }}ViewController {
         let viewController: {{ module_info.name }}ViewController = UIStoryboard(storyboard: .{{ module_info.name | capitalize }}).instantiateViewController()
         let assembly = {{ module_info.name }}Assembly()
-        assembly.configure(input: controller)
+        assembly.configure(input: viewController)
         return viewController
     }
 
